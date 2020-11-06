@@ -1,0 +1,9 @@
+stages:
+  - deploy
+
+run-ci:
+  stage: deploy
+  image: nexus.egt-ua.loc/qa-lib-builder:latest
+  script: cd /app && ./point.sh
+  only:
+    - tags

@@ -1,0 +1,13 @@
+image: docker:latest
+
+stages:
+  - deploy
+
+build:
+  stage: deploy
+  script:
+    - docker login -u $REGISTRY_USER -p $REGISTRY_PASSWORD nexus.egt-ua.loc
+    - docker build -t nexus.egt-ua.loc/qa-lib-builder .
+    - docker push nexus.egt-ua.loc/qa-lib-builder
+  only:
+    - master

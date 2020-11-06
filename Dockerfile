@@ -1,0 +1,8 @@
+FROM python:3.7
+
+ARG CA_CERTIFICATE
+ARG ANOTHER_ROOT_CA
+
+WORKDIR /app
+COPY . /app
+
